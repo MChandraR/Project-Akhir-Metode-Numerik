@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Newton-Raphson Metode Numerik</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="ubuntu.css">
+    <style>
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="form-area">
+            <div class="title">
+                <img class="logos" src="/assets/images/umrah.png" alt="">
+                <h1>Newton-Raphson Metode Numerik</h1>
+            </div>
+            <hr>
+            <form id="nr-form">
+                <table class="form-table" border="0">
+                    <tr>
+                        <td class="auto-width ">
+                            <label for="function">Function, f(x):</label>
+                        </td>
+                        <td>:</td>
+                        <td>
+                            <input type="text" id="function" placeholder="e.g., x**2 - 4">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="auto-width ">
+                            <label for="derivative">Turunan, f'(x)</label>
+                        </td>
+                        <td>:</td>
+                        <td>
+                            <input type="text" id="derivative" placeholder="e.g., 2*x">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="auto-width ">
+                            <label for="initial">Nilai Tebakan Awal (x<sub>0</sub>)</label>
+                        </td>
+                        <td>:</td>
+                        <td>
+                            <input type="number" id="initial" step="any">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="auto-width ">
+                            <label for="tolerance">Batas Error </label>
+                        </td>
+                        <td>:</td>
+                        <td>
+                            <input type="number" id="tolerance" step="any" value="0.0001">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="auto-width ">
+                            <label for="max-iterations">Iterasi Maksimum</label>
+                        </td>
+                        <td>:</td>
+                        <td>
+                            <input type="number" id="max-iterations" value="100">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="auto-width "></td>
+                        <td></td>
+                        <td>
+                            <button type="submit">Penyelesaian</button>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+
+
+        <div class="hasil-area">
+
+            <table id="results-table">
+                <thead>
+                    <tr>
+                        <th>Iteration</th>
+                        <th>x<sub>i</sub></th>
+                        <th>f(x<sub>i</sub>)</th>
+                        <th>f'(x<sub>i</sub>)</th>
+                        <th>Error</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        
+        </div>
+    </div>
+
+    
+    <footer>
+        Copyright by Kelompok 2 - Metode Numerik Senin 13.00
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+   <script src="script.js"></script>
+    </script>
+</body>
+</html>
