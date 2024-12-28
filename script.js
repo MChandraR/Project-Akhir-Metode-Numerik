@@ -19,6 +19,7 @@ function sanitize(formula){
 
 console.log(sanitize("2x"));
 
+
 document.getElementById('nr-form').addEventListener('submit', async function(event) {
     event.preventDefault();
 
@@ -57,7 +58,7 @@ document.getElementById('nr-form').addEventListener('submit', async function(eve
                 <td>${fpx.toFixed(6)}</td>
                 <td>${error.toFixed(6)}</td>
                 <td>
-                    <button class="lihat">Lihat</button>
+                    <button class="lihat" onClick="showDetail(${iteration + 1},${x.toFixed(6)},'${funcInput}', '${derivInput}', '${fx}', '${fpx}', '${xNext}', '${error}')">Lihat</button>
                 </td>
             </tr>`;
             resultsTable.insertAdjacentHTML('beforeend', row);
@@ -105,4 +106,36 @@ function showAnggota(){
         anggotaArea.classList.add("show");
         anggotaArea.classList.toggle("hide");
     }
+}
+
+let proses = document.getElementById("proses-area");
+let error = document.getElementById("error");
+let iterasi = document.getElementById("iterasi");
+let func = document.getElementById("f-content");
+let next = document.getElementById("next");
+let nextProc = document.getElementById("nextProcess");
+let fa = document.getElementById("fa-content");
+
+function showDetail(i,x, f, df,fx, fpx, xNext, err){
+    proses.classList.remove("hide");
+    next.innerHTML = `Mencari nilai X${i-1} + 1`;
+    nextProc.innerHTML = `X${i-1} + 1 = X${i-1} -  ( f(x<sub>X${i-1}</sub>) / f'(x<sub>X${i-1}</sub>) ) = ${x} - ( ${fx}/${fpx} ) = ${xNext} `;
+    const funcInput = sanitize(document.getElementById('function').value);
+    iterasi.innerHTML = i;
+    func.innerHTML = `
+        f(${x}) = ${f.replace("x", x)} <br>
+        f(${x}) = ${fx}
+    `;
+
+    fa.innerHTML = `
+        f'(${x}) = ${df.replace("x", x)} <br>
+        f'(${x}) = ${fpx}
+    `;
+
+    error.innerHTML = `Nilai Error : ${err}`;
+}
+
+
+function closeDetail(){
+    proses.classList.add("hide");
 }
