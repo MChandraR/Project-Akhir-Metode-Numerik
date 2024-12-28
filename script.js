@@ -44,7 +44,7 @@ document.getElementById('nr-form').addEventListener('submit', async function(eve
             const fpx = fPrime(x);
     
             if (fpx === 0) {
-                alert('Derivative is zero, cannot continue iterations.');
+                alert('Turunan bernilai 0 tidak bisa melanjutkan iterasi');
                 return;
             }
     
@@ -78,7 +78,7 @@ document.getElementById('nr-form').addEventListener('submit', async function(eve
             Swal.fire({
                 title : "Proses Selesai",
                 icon : "error",
-                text : 'Solution did not converge within the maximum number of iterations.'
+                text : 'Solusi tidak/belum konvergen sesuai dengan iterasi maksimum'
             });
         }
     }catch(e){
