@@ -1,7 +1,8 @@
-let logic = "*-+/^%";
+let logic = "*-−+/^%";
 
 function sanitize(formula){
-    formula = formula.replace("^", "**");
+    formula = formula.replace(" ", "");
+    while(formula.includes("^"))formula = formula.replace("^", "**");
     let new_formula = formula[0];
     for(let i=1;i<formula.length;i++){
         let pass = false;
@@ -14,15 +15,17 @@ function sanitize(formula){
         }
         new_formula += formula[i];
     }
+    console.log(new_formula);
     return new_formula;
 }
 
 console.log(sanitize("2x"));
-
+let curNum = 0;
 
 document.getElementById('nr-form').addEventListener('submit', async function(event) {
     event.preventDefault();
-
+    curNum++;
+    let cur = curNum;
     const funcInput = sanitize(document.getElementById('function').value);
     const derivInput = sanitize(document.getElementById('derivative').value);
     const initial = parseFloat(document.getElementById('initial').value);
@@ -39,7 +42,7 @@ document.getElementById('nr-form').addEventListener('submit', async function(eve
     resultsTable.innerHTML = '';
 
     try{       
-        while (error > tolerance && iteration < maxIterations) {
+        while (error > tolerance && iteration < maxIterations ) {
             const fx = f(x);
             const fpx = fPrime(x);
     
@@ -48,7 +51,7 @@ document.getElementById('nr-form').addEventListener('submit', async function(eve
                 return;
             }
     
-            const xNext = x - fx / fpx;
+            const xNext = x - (fx / fpx);
             error = Math.abs(xNext - x);
     
             const row = `<tr>
@@ -88,7 +91,7 @@ document.getElementById('nr-form').addEventListener('submit', async function(eve
             text : `Harap isi semua field !`
         });
     }
-
+    curNum--;
     
 });
 
