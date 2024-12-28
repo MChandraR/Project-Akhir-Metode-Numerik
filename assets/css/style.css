@@ -231,7 +231,8 @@ tbody{
 
 #proses-area{
     z-index: 2;
-    background-color: white;
+    color : rgb(255, 225, 0);
+    background-color : rgb(95, 95, 255);
     border-radius: .5rem;
     position: absolute;
     display: block;
@@ -239,8 +240,15 @@ tbody{
     height: 50vh;
     top: 25vh;
     left : 25vw;
-    color : black;
     padding : 1rem;
+}
+
+#f-content{
+    line-height: 2rem;
+}
+
+#fa-content{
+    line-height: 2rem;
 }
 
 #proses-area.hide{
