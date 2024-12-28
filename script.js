@@ -21,6 +21,7 @@ function sanitize(formula){
 
 console.log(sanitize("2x"));
 let curNum = 0;
+let table = document.getElementById("hasil-area");
 
 document.getElementById('nr-form').addEventListener('submit', async function(event) {
     event.preventDefault();
@@ -64,6 +65,11 @@ document.getElementById('nr-form').addEventListener('submit', async function(eve
                     <button class="lihat" onClick="showDetail(${iteration + 1},${x.toFixed(6)},'${funcInput}', '${derivInput}', '${fx}', '${fpx}', '${xNext}', '${error}')">Lihat</button>
                 </td>
             </tr>`;
+
+            table.scrollBy({ 
+                top: table.offsetHeight,
+                behavior: 'smooth' 
+              });
             resultsTable.insertAdjacentHTML('beforeend', row);
     
             x = xNext;
@@ -85,6 +91,7 @@ document.getElementById('nr-form').addEventListener('submit', async function(eve
             });
         }
     }catch(e){
+        console.log(e);
         Swal.fire({
             title : "Input tidak valid",
             icon : "error",
