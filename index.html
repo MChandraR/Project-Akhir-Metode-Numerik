@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Newton-Raphson Metode Numerik</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="ubuntu.css">
+    <link rel="stylesheet" href="/assets/css/animation.css">
+    <link rel="stylesheet" href="/assets/css/ubuntu.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
     <style>
 
     </style>
@@ -14,12 +15,16 @@
 
     <div class="container">
 
-        <button class="tombol-anggota" onclick="showAnggota()">
-            Anggota Kelompok
-        </button>
+        <div class="tombol-anggota" onclick="showAnggota()">
+            <img src="/assets/images/icon/audience.png" alt="">
+            <h2>
+                Anggota Kelompok
+            </h2>
+        </div>
 
 
-        <div id="anggota-area">
+        <div id="anggota-area" class="hide">
+            <img src="/assets/images/icon/close.png" onclick="showAnggota()" class="close-btn" alt="">
             <h2>1. 2201020103 - Muhammad Chandra Ramadhan</h2>
             <h2>2. 2201020041 - Amelia</h2>
             <h2>3. 2201020010 - Faiz Arrafi </h2>

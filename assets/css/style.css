@@ -143,10 +143,33 @@ tbody{
 }
 
 .tombol-anggota{
+    display :flex;
+    align-items: center;
+    column-gap: 1rem;
+    background-color : rgb(95, 95, 255);
+    border-radius: .5rem;
+    padding : .5rem 1rem;
+    color : black;
     position: absolute;
     bottom : 1rem;
-    left : 1rem;
+    left : 2rem;
+    cursor: pointer;
     z-index : 2;
+}
+
+.close-btn{
+    width : 1.5rem;
+    position  : absolute;
+    top : 1rem;
+    right : 1rem;
+}
+
+.tombol-anggota h2{
+    margin : 0;
+    color : rgb(255, 225, 0);
+    font-size: 1rem;
+    text-shadow: 1px 1px 2px black;
+
 }
 
 #anggota-area{
@@ -155,9 +178,29 @@ tbody{
     position : absolute;
     width : 45vw;
     left : 2rem;
-    display: none;
+    display: grid;
+    grid-template-columns: 100%;
+    align-items: center;
+    row-gap: 0;
     top : 3.1rem;
+    color : rgb(255, 225, 0);
     height : 80vh;
+    animation: slideInLeft 1s ease 0s 1 normal forwards;
     border-radius: .5rem;
-    background-color : rgb(255, 253, 240);
+    background-color : rgb(95, 95, 255);
+}
+
+#anggota-area.hide{
+    animation: slideOutLeft 1s ease 0s 1 normal forwards;
+
+}
+
+#anggota-area h2{
+    margin : 0;
+    text-shadow: 1px 1px 2px black;
+}
+
+
+.tombol-anggota img{
+    width : 2rem;
 }

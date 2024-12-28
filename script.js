@@ -82,5 +82,5 @@ document.getElementById('nr-form').addEventListener('submit', async function(eve
 let anggotaArea = document.getElementById("anggota-area");
 
 function showAnggota(){
-    anggotaArea.style.display = anggotaArea.style.display == "block" ? "none"  : "block";
+    anggotaArea.classList.toggle("hide");
 }
