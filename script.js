@@ -37,50 +37,72 @@ document.getElementById('nr-form').addEventListener('submit', async function(eve
     const resultsTable = document.getElementById('results-table').querySelector('tbody');
     resultsTable.innerHTML = '';
 
-    while (error > tolerance && iteration < maxIterations) {
-        const fx = f(x);
-        const fpx = fPrime(x);
-
-        if (fpx === 0) {
-            alert('Derivative is zero, cannot continue iterations.');
-            return;
+    try{       
+        while (error > tolerance && iteration < maxIterations) {
+            const fx = f(x);
+            const fpx = fPrime(x);
+    
+            if (fpx === 0) {
+                alert('Derivative is zero, cannot continue iterations.');
+                return;
+            }
+    
+            const xNext = x - fx / fpx;
+            error = Math.abs(xNext - x);
+    
+            const row = `<tr>
+                <td>${iteration + 1}</td>
+                <td>${x.toFixed(6)}</td>
+                <td>${fx.toFixed(6)}</td>
+                <td>${fpx.toFixed(6)}</td>
+                <td>${error.toFixed(6)}</td>
+                <td>
+                    <button class="lihat">Lihat</button>
+                </td>
+            </tr>`;
+            resultsTable.insertAdjacentHTML('beforeend', row);
+    
+            x = xNext;
+            iteration++;
+            await new Promise(r => setTimeout(r, 200));
         }
 
-        const xNext = x - fx / fpx;
-        error = Math.abs(xNext - x);
-
-        const row = `<tr>
-            <td>${iteration + 1}</td>
-            <td>${x.toFixed(6)}</td>
-            <td>${fx.toFixed(6)}</td>
-            <td>${fpx.toFixed(6)}</td>
-            <td>${error.toFixed(6)}</td>
-        </tr>`;
-        resultsTable.insertAdjacentHTML('beforeend', row);
-
-        x = xNext;
-        iteration++;
-        await new Promise(r => setTimeout(r, 200));
-    }
-
-    if (error <= tolerance) {
+        if (error <= tolerance) {
+            Swal.fire({
+                title : "Proses Selesai",
+                icon : "info",
+                text : `Solusi konvergen terhadap x = ${x.toFixed(6)} dalam ${iteration} iterasi.`
+            });
+        } else {
+            Swal.fire({
+                title : "Proses Selesai",
+                icon : "error",
+                text : 'Solution did not converge within the maximum number of iterations.'
+            });
+        }
+    }catch(e){
         Swal.fire({
-            title : "Proses Selesai",
-            icon : "info",
-            text : `Solution converged to x = ${x.toFixed(6)} in ${iteration} iterations.`
-        });
-    } else {
-        Swal.fire({
-            title : "Proses Selesai",
+            title : "Input tidak valid",
             icon : "error",
-            text : 'Solution did not converge within the maximum number of iterations.'
+            text : `Harap isi semua field !`
         });
     }
+
+    
 });
 
 
 let anggotaArea = document.getElementById("anggota-area");
+let coolDown = false;
+
 
 function showAnggota(){
-    anggotaArea.classList.toggle("hide");
+    if(!coolDown){
+        coolDown = true;
+        setTimeout(()=>{
+            coolDown = false;
+        },1500);
+        anggotaArea.classList.add("show");
+        anggotaArea.classList.toggle("hide");
+    }
 }
