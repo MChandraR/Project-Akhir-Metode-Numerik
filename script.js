@@ -21,7 +21,10 @@ function sanitize(formula){
 
 console.log(sanitize("2x"));
 let curNum = 0;
+let iterasiCol = document.getElementById("iterasi-col");
+iterasiCol.innerHTML = window.width > 1000 ? "Iterasi" : "i";
 let table = document.getElementById("hasil-area");
+let len = window.screen.width > 1000 ? 6 : 3; 
 
 document.getElementById('nr-form').addEventListener('submit', async function(event) {
     event.preventDefault();
@@ -54,13 +57,14 @@ document.getElementById('nr-form').addEventListener('submit', async function(eve
     
             const xNext = x - (fx / fpx);
             error = Math.abs(xNext - x);
+            
     
             const row = `<tr>
-                <td>${iteration + 1}</td>
-                <td>${x.toFixed(6)}</td>
-                <td>${fx.toFixed(6)}</td>
-                <td>${fpx.toFixed(6)}</td>
-                <td>${error.toFixed(6)}</td>
+                <td class="iterasi-col">${iteration + 1}</td>
+                <td>${x.toFixed(len)}</td>
+                <td>${fx.toFixed(len)}</td>
+                <td>${fpx.toFixed(len)}</td>
+                <td>${error.toFixed(len)}</td>
                 <td>
                     <button class="lihat" onClick="showDetail(${iteration + 1},${x.toFixed(6)},'${funcInput}', '${derivInput}', '${fx}', '${fpx}', '${xNext}', '${error}')">Lihat</button>
                 </td>

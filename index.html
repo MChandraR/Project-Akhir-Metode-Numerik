@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/assets/css/animation.css">
     <link rel="stylesheet" href="/assets/css/ubuntu.css">
     <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/mobile.css">
     <style>
 
     </style>
@@ -116,9 +117,9 @@
                     </tr>
 
                     <tr>
-                        <td class="auto-width "></td>
-                        <td></td>
-                        <td>
+                        <td class="auto-width mob"></td>
+                        <td class="mob"></td>
+                        <td class="sub">
                             <button type="submit">Penyelesaian</button>
                         </td>
                     </tr>
@@ -132,7 +133,7 @@
             <table id="results-table">
                 <thead>
                     <tr>
-                        <th>Iterasi</th>
+                        <th class="iterasi-col" id="iterasi-col">Iterasi</th>
                         <th>x<sub>i</sub></th>
                         <th>f(x<sub>i</sub>)</th>
                         <th>f'(x<sub>i</sub>)</th>
@@ -153,7 +154,6 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-   <script src="script.js"></script>
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
