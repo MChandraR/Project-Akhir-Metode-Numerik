@@ -23,9 +23,6 @@ th, td {
     padding: 8px;
     text-align: center;
 }
-th {
-    /* background-color: #f2f2f2; */
-}
 
 .container{
     display : grid;
@@ -83,9 +80,7 @@ button{
     align-items : center;
 }
 
-.title h1{
-    /* text-shadow: 0 0 .2rem black; */
-}
+
 
 footer{
     position :absolute;
@@ -126,26 +121,25 @@ footer{
 }
 
 
-thead{
-    position : sticky;
-    top : 0;
-}
-
-thead th{
-    /* background-color: #e18cb3; */
-
-}
 
 tbody{
     margin : 1rem;
 }
 
-#result-table{
+#results-table{
     border: solid white 1px;
+}
+
+#results-table thead{
+    z-index: 3;
+    border: solid white 1px;
+
 }
 
 #results-table thead tr th{
     z-index: 3;
+    position : sticky;
+    top : 0;
     background-color : rgb(95, 95, 255);
     border: solid rgb(255, 255, 255) 1px;
     color : rgb(255, 225, 0);
@@ -160,6 +154,16 @@ tbody{
 
     /* background-color: rgba(255, 255, 255, 0.65); */
 }
+
+.anggota-btn-area{
+    color : black;
+    position: absolute;
+    bottom : 0rem;
+    left : 0rem;
+    cursor: pointer;
+    z-index : 2;
+}
+
 
 .tombol-anggota{
     display :flex;
@@ -203,7 +207,7 @@ tbody{
     left : 2rem;
 
     align-items: center;
-    row-gap: 0;
+    row-gap: 1rem;
     top : 3.1rem;
     color : rgb(255, 225, 0);
     height : 80vh;
@@ -225,7 +229,31 @@ tbody{
 }
 
 #anggota-area h2{
-    margin : 0;
+    margin : 0 1rem;
+    font-size: 1.5rem;
+    text-shadow: 1px 1px 2px black;
+}
+
+#anggota-area hr{
+    width: calc(100% - 2rem);
+    margin : 0rem 1rem;
+
+}
+
+#nextProcess{
+    display: grid;
+    grid-template-columns: 1.5rem auto;
+}
+
+#anggota-area ol{
+    display: grid;
+    margin-top: -1rem;
+}
+
+#anggota-area ol li{
+    margin : 1rem 0;
+    font-weight: bold;
+    font-size : 1.2rem;
     text-shadow: 1px 1px 2px black;
 }
 
@@ -235,17 +263,25 @@ tbody{
 }
 
 #proses-area{
-    z-index: 2;
+    z-index: 5;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;;
+    width: 100%;
+    top: 0;
+    left : 0;
+    height: 100%;
+}
+
+#proses-field{
+    min-width: 50%;
+    display: block;
+    padding : 1rem 2rem;
+    position: relative;
+    border-radius: .5rem;
     color : rgb(255, 225, 0);
     background-color : rgb(95, 95, 255);
-    border-radius: .5rem;
-    position: absolute;
-    display: block;
-    width: 50vw;
-    min-height: 50vh;
-    top: 25vh;
-    left : 25vw;
-    padding : 1rem;
 }
 
 #f-content{

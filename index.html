@@ -14,51 +14,61 @@
 </head>
 <body>
 
-    <div class="container">
-        <div id="proses-area" class="hide"> 
-            <img src="/assets/images/icon/close.png" onclick="closeDetail()" class="close-btn" alt="">
-            <h2>Proses untuk iterasi (<span id="iterasi"></span>  ) </h2>
-            <hr>
-            <table>
-                <thead>
-                    <tr>
-                        <th>f(x<sub>i</sub>)</th>
-                        <th>f`(x<sub>i</sub>)</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td id="f-content"></td>
-                        <td id="fa-content"></td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <h3 id="next"></h3>
-            <h3 id="nextProcess"></h3>
-            <h3 id="error"></h3>
+    <div class="container" id="container">
+        <div id="proses-area"  class="hide">
+            <div id="proses-field"> 
+                <img src="/assets/images/icon/close.png" onclick="closeDetail()" class="close-btn" alt="">
+                <h2>Proses untuk iterasi (<span id="iterasi"></span>  ) </h2>
+                <hr>
+                <h3 id="nilai-x"></h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>f(x<sub>i</sub>)</th>
+                            <th>f`(x<sub>i</sub>)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td id="f-content"></td>
+                            <td id="fa-content"></td>
+                        </tr>
+                    </tbody>
+                </table>
+    
+                <h3 id="next"></h3>
+                <h3 id="nextProcess"></h3>
+                <h3 id="error"></h3>
+            </div>
         </div>
 
 
-
-        <div class="tombol-anggota" onclick="showAnggota()">
-            <img src="/assets/images/icon/audience.png" alt="">
-            <h2>
-                Anggota Kelompok
-            </h2>
+        <div class="anggota-btn-area">
+            <div class="tombol-anggota" onclick="showAnggota()">
+                <img src="/assets/images/icon/audience.png" alt="">
+                <h2>
+                    Anggota Kelompok
+                </h2>
+            </div>
         </div>
+       
 
 
         <div id="anggota-area" class="hide">
             <img src="/assets/images/icon/close.png" onclick="showAnggota()" class="close-btn" alt="">
-            <h2>1. 2201020103 - Muhammad Chandra Ramadhan</h2>
-            <h2>2. 2201020041 - Amelia</h2>
-            <h2>3. 2201020010 - Faiz Arrafi </h2>
-            <h2>4. 2201020047 - Hamidah</h2>
-            <h2>5. 2201020105 - Maulana Fitra Ramadhani</h2>
-            <h2>6. 2201020139 - Muhammad Iqbal Hordani</h2>
-            <h2>7. 2201020011 - M. Zaidaan Nugroho</h2>
-            <h2>8. 2201020026 - Rifana Bima Pradifa</h2>
+            <h2 >Anggota Kelompok 2 </h2>
+            <hr >
+            <ol type="0">
+                <li>2201020103 - Muhammad Chandra Ramadhan</li>
+                <li>2201020041 - Amelia</li>
+                <li>2201020010 - Faiz Arrafi </li>
+                <li>2201020047 - Hamidah</li>
+                <li>2201020105 - Maulana Fitra Ramadhani</li>
+                <li>2201020139 - Muhammad Iqbal Hordani</li>
+                <li>2201020011 - M. Zaidaan Nugroho</li>
+                <li>2201020026 - Rifana Bima Pradifa</li>
+            </ol>
+
         </div>
 
         <div class="form-area">

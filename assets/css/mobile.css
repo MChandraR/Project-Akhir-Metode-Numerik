@@ -33,10 +33,7 @@
         padding: 8px;
         text-align: center;
     }
-    th {
-        /* background-color: #f2f2f2; */
-    }
-    
+
     .container{
         margin-top: 1rem;
         display : grid;
@@ -44,6 +41,7 @@
         padding : 0 1rem;
         column-gap : 3rem;
         row-gap: 0;
+        height: auto;
         grid-template-columns : calc(100% - 2rem);
     }
 
@@ -69,7 +67,7 @@
         border-radius : .3rem;
         padding : .5rem 1rem;
         border : none;
-        width: 90%;
+        width: 80%;
         box-shadow: 0 0 .5rem rgba(0, 0, 0, 0.215);
     }
     
@@ -97,9 +95,7 @@
         align-items : center;
     }
     
-    .title h1{
-        /* text-shadow: 0 0 .2rem black; */
-    }
+
     
     footer{
         position :fixed;
@@ -114,15 +110,15 @@
     
     .form-area{
         border-radius: .5rem;
-        padding : 1rem;
+        padding : .5rem;
         filter:blur(1);
         /* background-color: rgba(0, 0, 0, 0.07); */
-        height : 100%;
+        height : auto;
     }
     
     .hasil-area{
         margin : 1rem;
-        height : 90%;
+        max-height : 50vh;
         overflow : auto;
         margin-top : 2.5rem;
         margin-bottom: 5rem;
@@ -148,10 +144,6 @@
         top : 0;
     }
     
-    thead th{
-        /* background-color: #e18cb3; */
-    
-    }
     
     tbody{
         margin : 1rem;
@@ -172,6 +164,22 @@
     .iterasi-col{
         width : 1rem;
     }
+
+    .anggota-btn-area{
+        color : black;
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 88vw;
+        bottom: auto;
+        top : 0rem;
+        left : 0rem;
+        z-index : 2;
+        padding: 0;
+        margin: 0;
+    }
+
     
     .tombol-anggota{
         display :flex;
@@ -181,10 +189,8 @@
         border-radius: .5rem;
         padding : .5rem 1rem;
         color : black;
-        position: absolute;
-        top: 0rem;
+        position: relative;
         bottom: auto;
-        left : 28vw;
         margin-top: -.5rem;
         cursor: pointer;
         z-index : 2;
@@ -245,9 +251,15 @@
     }
     
     #anggota-area h2{
-        margin : 0;
-        font-size: 1rem;
+        margin : 0 1rem;
+        font-size: 1.5rem;
         text-shadow: 1px 1px 2px black;
+    }
+    
+    #anggota-area hr{
+        width: calc(100% - 2rem);
+        margin : 0rem 1rem;
+    
     }
     
     
@@ -256,19 +268,27 @@
     }
     
     #proses-area{
-        z-index: 2;
-        color : rgb(255, 225, 0);
-        background-color : rgb(95, 95, 255);
-        border-radius: .5rem;
-        position: absolute;
-        display: block;
-        width: 80vw;
-        min-height: 50vh;
-        top: 25vh;
-        left : 5vw;
-        padding : 1rem;
+        z-index: 4;
+        position: fixed;
+        display: flex;
+        align-items: center;
+        justify-content: center;;
+        width: 100%;
+        top: 0;
+        left : 0;
+        height: 100%;
     }
     
+    #proses-field{
+        min-width: 50%;
+        display: block;
+        max-width: 80vw;
+        position: relative;
+        border-radius: .5rem;
+        color : rgb(255, 225, 0);
+        background-color : rgb(95, 95, 255);
+    }
+
     #f-content{
         line-height: 2rem;
     }

@@ -24,6 +24,7 @@ let curNum = 0;
 let iterasiCol = document.getElementById("iterasi-col");
 iterasiCol.innerHTML = window.width > 1000 ? "Iterasi" : "i";
 let table = document.getElementById("hasil-area");
+let container = document.getElementsByTagName("html")[0];
 let len = window.screen.width > 1000 ? 6 : 3; 
 
 document.getElementById('nr-form').addEventListener('submit', async function(event) {
@@ -44,7 +45,7 @@ document.getElementById('nr-form').addEventListener('submit', async function(eve
     let iteration = 0;
     const resultsTable = document.getElementById('results-table').querySelector('tbody');
     resultsTable.innerHTML = '';
-
+    
     try{       
         while (error > tolerance && iteration < maxIterations ) {
             const fx = f(x);
@@ -70,11 +71,16 @@ document.getElementById('nr-form').addEventListener('submit', async function(eve
                 </td>
             </tr>`;
 
+            resultsTable.insertAdjacentHTML('beforeend', row);
             table.scrollBy({ 
                 top: table.offsetHeight,
                 behavior: 'smooth' 
               });
-            resultsTable.insertAdjacentHTML('beforeend', row);
+
+            container.scrollBy({
+                top : container.offsetHeight,
+                behavior : 'smooth'
+            });
     
             x = xNext;
             iteration++;
@@ -129,11 +135,20 @@ let func = document.getElementById("f-content");
 let next = document.getElementById("next");
 let nextProc = document.getElementById("nextProcess");
 let fa = document.getElementById("fa-content");
+let nilaiX = document.getElementById("nilai-x");
 
 function showDetail(i,x, f, df,fx, fpx, xNext, err){
     proses.classList.remove("hide");
+    nilaiX.innerHTML = `Nilai X${i-1} = ${x}`;
     next.innerHTML = `Mencari nilai X${i-1} + 1`;
-    nextProc.innerHTML = `X${i-1} + 1 = X${i-1} -  ( f(x<sub>X${i-1}</sub>) / f'(x<sub>X${i-1}</sub>) ) = ${x} - ( ${fx}/${fpx} ) = ${xNext} `;
+    nextProc.innerHTML = `
+    <span> = </span> 
+    <span> X${i-1} -  ( f(x<sub>X${i-1}</sub>) / f'(x<sub>X${i-1}</sub>) ) </span> 
+    <span> = </span>
+    <span> ${x} - ( ${fx}/${fpx} ) </span> 
+    <span> = </span>
+    <span> ${xNext} </span>
+    `;
     const funcInput = sanitize(document.getElementById('function').value);
     iterasi.innerHTML = i;
     func.innerHTML = `

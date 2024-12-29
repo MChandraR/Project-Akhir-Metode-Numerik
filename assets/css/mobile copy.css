@@ -28,10 +28,7 @@
         padding: 8px;
         text-align: center;
     }
-    th {
-        /* background-color: #f2f2f2; */
-    }
-    
+ 
     .container{
         margin-top: 1rem;
         display : grid;
@@ -92,9 +89,7 @@
         align-items : center;
     }
     
-    .title h1{
-        /* text-shadow: 0 0 .2rem black; */
-    }
+
     
     footer{
         position :absolute;
@@ -141,10 +136,7 @@
         top : 0;
     }
     
-    thead th{
-        /* background-color: #e18cb3; */
-    
-    }
+
     
     tbody{
         margin : 1rem;
